@@ -1,10 +1,6 @@
 import { LuVideo } from "react-icons/lu";
-import { getAllTestUser } from "services";
 
 export default async function Introduction() {
-  const data = await getAllTestUser();
-  console.log(data);
-
   return (
     <div
       className="w-full h-[700px] bg-cover bg-center"

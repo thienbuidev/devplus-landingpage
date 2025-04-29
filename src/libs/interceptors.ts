@@ -4,7 +4,7 @@ import axios, {
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from "axios";
-import { envVariables } from "../constants";
+import { envVariables } from "../constants/envVars";
 import { RequestOptions } from "types";
 
 // 1. Create instance axios
