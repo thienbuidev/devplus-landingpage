@@ -1,6 +1,5 @@
 import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
-import styles from "./map.module.css";
 import logoMarker from "@/assets/logo.png";
 import "leaflet/dist/leaflet.css";
 import "react-leaflet-markercluster/styles";
@@ -18,7 +17,7 @@ export const createCustomMarkerIcon = (iconUrl: string) =>
 
 const Map = () => (
   <MapContainer
-    className={`flex max-w-[1250px] max-h-[600px] ${styles.map}`}
+    className={`flex md:h-[600px] lg:h-[600px] w-screen h-[500px]`}
     center={[16.0471, 108.2068]}
     zoom={6}
     maxZoom={18}
@@ -28,7 +27,7 @@ const Map = () => (
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     />
-    <MarkerClusterGroup showCoverageOnHover={false} maxClusterRadius={10}>
+    <MarkerClusterGroup showCoverageOnHover={false} maxClusterRadius={8}>
       {warrios.map((loc) => (
         <Marker
           key={loc.name}
