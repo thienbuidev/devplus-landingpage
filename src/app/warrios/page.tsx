@@ -8,7 +8,7 @@ import logoMarker from "@/assets/logo.png";
 import L from "leaflet";
 import Image from "next/image";
 import { Divider, Input, Select, Tag } from "antd";
-import { TagDisplayName } from "constant/tagStatus";
+import { TagDisplayName } from "constants/tagStatus";
 
 const { Option } = Select;
 

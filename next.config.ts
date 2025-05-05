@@ -27,6 +27,7 @@ const nextConfig: NextConfig = {
       "inkythuatso.com",
       "rubee.com.vn",
       "images.seeklogo.com",
+      "devplus.edu.vn",
     ],
   },
 };

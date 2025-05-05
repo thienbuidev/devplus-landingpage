@@ -11,6 +11,7 @@
   "dependencies": {
     "@next/env": "15.3.1",
     "antd": "5.24.9",
+    "axios": "^1.9.0",
     "leaflet": "1.9.4",
     "leaflet.markercluster": "1.5.3",
     "lucide": "0.503.0",
