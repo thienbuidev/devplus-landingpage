@@ -10,7 +10,7 @@ const methods = {
 };
 
 const urls = {
-  test: "/test",
+  service: "/service",
   university: "/university",
 };
 
