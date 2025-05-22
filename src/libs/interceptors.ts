@@ -6,10 +6,11 @@ import axios, {
 } from "axios";
 import { envVariables } from "../constants/envVars";
 import { RequestOptions } from "types";
+import { StrapiResponse } from "types/strapiResponse";
 
 // 1. Create instance axios
 const AXIOS: AxiosInstance = axios.create({
-  baseURL: envVariables.apiUrl,
+  baseURL: envVariables.apiUrl || "http://localhost:1337/api",
   timeout: 10000,
   headers: {
     Accept: "application/json",
@@ -21,7 +22,11 @@ const AXIOS: AxiosInstance = axios.create({
 const onRequest = async (
   config: InternalAxiosRequestConfig
 ): Promise<InternalAxiosRequestConfig> => {
-  console.info(`[request] [${config.method?.toUpperCase()} ${config.url}]`);
+  console.info(
+    `[request] [${config.method?.toUpperCase()} ${config.url} ${
+      config.baseURL
+    }]`
+  );
   //   const token = await helper.getToken();
   //   if (token) {
   //     config.headers.Authorization = `Bearer ${token}`;
@@ -35,7 +40,7 @@ const onRequestError = async (error: AxiosError): Promise<AxiosError> => {
 };
 
 const onResponse = async (response: AxiosResponse): Promise<AxiosResponse> => {
-  console.info(`[response] [${response.status}] [${response.config.url}]`);
+  console.info(`[response] [${response.status}]`);
   return response;
 };
 
@@ -68,19 +73,21 @@ const request = async <T>({
   headers = {},
   url,
   data,
+  params,
   onSuccess,
   onError,
-}: RequestOptions<T>): Promise<T> => {
+}: RequestOptions<T>): Promise<StrapiResponse<T>> => {
   try {
     const response = await AXIOS({
       method,
       headers,
       url,
       data,
+      params,
     });
 
-    onSuccess?.(response.data as T);
-    return response.data as T;
+    onSuccess?.(response.data as StrapiResponse<T>);
+    return response.data as StrapiResponse<T>;
   } catch (error) {
     const errorMessage = axios.isAxiosError(error)
       ? error.response?.data || "Unknown Axios error"

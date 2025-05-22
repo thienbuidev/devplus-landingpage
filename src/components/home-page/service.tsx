@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { Service } from "./ServiceItem";
 import { getService } from "services";
+import { LandingButton } from "./LandingButton";
 
 const iconMap: Record<string, React.ReactNode> = {
   "strategic-planning": <FaChartLine size={48} />,
@@ -21,9 +22,9 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export default async function UniversityServices() {
-  const getSerVice = await getService();
+  const { data } = await getService();
 
-  const serviceMapIon = getSerVice.map((service) => {
+  const serviceMapIon = data.map((service) => {
     return {
       ...service,
       icon: iconMap[service.slug!],
@@ -31,7 +32,7 @@ export default async function UniversityServices() {
   });
 
   return (
-    <section className=" w-full bg-white pt-20 pb-20">
+    <section className=" w-full bg-white pt-20 pb-20 px-6">
       <div className="flex flex-col items-center mb-12">
         <div className="text-slate-600 mb-4">
           <FaUniversity size={64} />
@@ -46,7 +47,7 @@ export default async function UniversityServices() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8">
         {serviceMapIon.map((service, index) => (
           <Service
             key={index}
@@ -58,9 +59,7 @@ export default async function UniversityServices() {
       </div>
 
       <div className="flex justify-center mt-8">
-        <button className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-2 rounded">
-          Learn More
-        </button>
+        <LandingButton text="Learn more" />
       </div>
     </section>
   );

@@ -10,8 +10,9 @@ const methods = {
 };
 
 const urls = {
-  service: "/service",
-  university: "/university",
+  service: "/services",
+  university: "/universities",
+  article: "/articles",
 };
 
 export { methods, urls, logoPlaceholder };

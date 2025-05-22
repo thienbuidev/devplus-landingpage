@@ -1,48 +1,64 @@
 "use client";
 
-import Image from "next/image";
 import { University } from "types";
-import { CSSProperties } from "react";
-import { logoPlaceholder } from "../../constants";
+import { Image } from "antd";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { BiLeftArrowCircle, BiRightArrowCircle } from "react-icons/bi";
+import { useRef } from "react";
 
 interface LogoCarouselProps {
   universities: University[];
 }
-
 export default function LogoCarousel({ universities }: LogoCarouselProps) {
-  const logos = [...universities, ...universities, ...universities];
-
-  const scrollStyle: CSSProperties = {
-    animation: "scroll 30s linear infinite",
+  const sliderRef = useRef<Slider | null>(null);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 3 },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 1 },
+      },
+    ],
   };
 
   return (
-    <div className="overflow-hidden w-full py-8 bg-[#425563]">
-      <div className="flex gap-10 whitespace-nowrap" style={scrollStyle}>
-        {logos.map((university, index) => (
-          <div key={index} className="flex-shrink-0">
-            <Image
-              src={university.logo || logoPlaceholder}
-              alt={university.slug}
-              width={100}
-              height={100}
-              className="object-contain h-16 w-auto"
-            />
+    <div className="w-full flex flex-row gap-8 align-middle justify-center items-center">
+      <BiLeftArrowCircle
+        size={40}
+        onClick={() => sliderRef.current?.slickPrev()}
+      />
+      <Slider
+        ref={sliderRef}
+        {...settings}
+        className="w-1/2 mx-auto custom-carousel"
+      >
+        {universities.map((uni, i) => (
+          <div key={i}>
+            <Image src={uni.logo} alt={`img-${i}`} width={100} height={100} />
           </div>
         ))}
-      </div>
-
-      {/* Inline <style> block for keyframes */}
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-      `}</style>
+      </Slider>
+      <BiRightArrowCircle
+        size={40}
+        onClick={() => sliderRef.current?.slickNext()}
+      />
     </div>
   );
 }
