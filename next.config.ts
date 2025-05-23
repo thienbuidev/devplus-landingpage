@@ -2,6 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    // remotePatterns: [
+    //   {
+    //     protocol: "https",
+    //     hostname: "**",
+    //   },
+    // ],
     domains: [
       "encrypted-tbn0.gstatic.com",
       "upload.wikimedia.org",
@@ -21,6 +27,7 @@ const nextConfig: NextConfig = {
       "inkythuatso.com",
       "rubee.com.vn",
       "images.seeklogo.com",
+      "devplus.edu.vn",
     ],
   },
 };
