@@ -44,12 +44,15 @@ export const Partnership = () => {
           to the resources and expertise of Arizona State University, including:
         </div>
       </div>
-      <div className="flex flex-row w-full mx-auto justify-around px-10 gap-20">
+      <div className="flex flex-wrap w-full mx-auto justify-around px-10 gap-2 md:gap-20">
         {items.map((item, index) => (
-          <div key={index} className="flex flex-col justify-center items-center">
-            <div className="text-4xl">{item.icon}</div>
-            <div className="text-3xl font-[600]"> {item.title}</div>
-            <div className="text-base font-[400] text-center"> {item.desc}</div>
+          <div
+        key={index}
+        className="flex flex-col justify-center items-center flex-1 min-w-[180px] max-w-[220px] m-2"
+          >
+        <div className="text-4xl">{item.icon}</div>
+        <div className="text-3xl font-[600]"> {item.title}</div>
+        <div className="text-base font-[400] text-center"> {item.desc}</div>
           </div>
         ))}
       </div>
