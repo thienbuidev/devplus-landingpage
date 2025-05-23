@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { Divider, Input, Select, Tag } from "antd";
-import { TagDisplayName } from "constant/tagStatus";
 import { warrios } from "./MapComponent/data";
 import { MapComponent } from "./MapComponent";
+import { TagDisplayName } from "constants/tagStatus";
 
 const { Option } = Select;
 

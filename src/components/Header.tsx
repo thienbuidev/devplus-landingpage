@@ -15,7 +15,7 @@ const items: MenuProps["items"] = [
 
 export default function Header() {
   return (
-    <header className="fixed flex w-full top-0 z-999999 bg-transparent">
+    <header className="fixed flex w-full top-0 z-999999 bg-gradient-to-bl from-gray-500/50 via-gray-900/60 to-black/30 shadow-md shadow-black/20">
       <div className="container mx-auto flex items-center justify-between p-2">
         <Link href="/">
           <Image src="/logo.png" alt="" width={80} height={80} />
