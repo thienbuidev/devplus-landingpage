@@ -3,10 +3,10 @@
 import Image from "next/image";
 import { Button, Divider, Input, Select, Tag } from "antd";
 import { TagDisplayName } from "constant/tagStatus";
-import { MapComponent } from "@/components/community/MapComponent";
 import { warrios } from "@/constant/data";
 import { useState } from "react";
 import JoinFormModal from "@/components/community/join-form";
+import { MapComponent } from "./MapComponent";
 
 const { Option } = Select;
 
