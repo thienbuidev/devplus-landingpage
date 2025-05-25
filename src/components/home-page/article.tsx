@@ -1,13 +1,23 @@
-import { getArticle } from "services";
+import { articleAPI } from "services/article.query";
 import { ArticlePagination } from "./ArticlePagination";
-
-export default async function Content() {
-  const articleData = await getArticle(1, 3);
+import {
+  HydrationBoundary,
+  dehydrate,
+  QueryClient,
+} from "@tanstack/react-query";
+import { api } from "libs/api";
+export default async function Article() {
+  const queryClient = new QueryClient();
+  await articleAPI.prefetch(queryClient, {
+    query: { "pagination[page]": 1, "pagination[pageSize]": 3 },
+  });
 
   return (
     <div className="bg-gray-300 p-10 my-16">
       <div className="container">
-        <ArticlePagination articleData={articleData} />
+        <HydrationBoundary state={dehydrate(queryClient)}>
+          <ArticlePagination />
+        </HydrationBoundary>
       </div>
     </div>
   );

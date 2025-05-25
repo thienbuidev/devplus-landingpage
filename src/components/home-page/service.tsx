@@ -8,9 +8,11 @@ import {
   FaGlobe,
   FaTrophy,
 } from "react-icons/fa";
-import { Service } from "./ServiceItem";
-import { getService } from "services";
 import { LandingButton } from "./LandingButton";
+import { api } from "libs/api";
+import { StrapiResponse } from "types/strapiResponse";
+import { Service } from "types";
+import { Service as ServiceItem } from "./ServiceItem";
 
 const iconMap: Record<string, React.ReactNode> = {
   "strategic-planning": <FaChartLine size={48} />,
@@ -22,9 +24,9 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export default async function UniversityServices() {
-  const { data } = await getService();
+  const data: StrapiResponse<Service> = await api("services");
 
-  const serviceMapIon = data.map((service) => {
+  const serviceMapIon = data.data.map((service) => {
     return {
       ...service,
       icon: iconMap[service.slug!],
@@ -49,7 +51,7 @@ export default async function UniversityServices() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8">
         {serviceMapIon.map((service, index) => (
-          <Service
+          <ServiceItem
             key={index}
             name={service.name}
             description={service.description}
