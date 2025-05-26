@@ -36,6 +36,6 @@ export default function RootLayout({
           <Footer />
         </ReactQueryProvider>
       </body>
-    </html>
+    </html >
   );
 }

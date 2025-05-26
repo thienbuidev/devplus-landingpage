@@ -1,21 +1,13 @@
 "use client";
 import { Col, Pagination, Row } from "antd";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BiRightArrowCircle } from "react-icons/bi";
-import { articleAPI } from "services/article.query";
+import { getArticles } from "services/article.query";
 
 export const ArticlePagination = () => {
   const [page, setPage] = useState(1);
-  const { data } = articleAPI.useQuery({
-    query: { "pagination[page]": page, "pagination[pageSize]": 3 },
-  });
-  useEffect(() => {
-    console.log("🔵 Component mounted");
+  const { data } = getArticles(page).useQuery();
 
-    return () => {
-      console.log("🔴 Component unmounted");
-    };
-  }, []);
   return (
     <div>
       <Row className="px-16 my-20">

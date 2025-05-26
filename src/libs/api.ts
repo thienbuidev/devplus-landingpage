@@ -29,7 +29,15 @@ export async function api(path: string, options: APIOptions = {}) {
   }
 
   const fullUrl = `${baseUrl}${path}${queryString}`;
-
+  console.log("[API REQUEST]", {
+    url: fullUrl,
+    method: options.method || "GET",
+    headers: { "Content-Type": "application/json", ...options.headers },
+    body: options.body,
+    query: options.query,
+    params: options.params,
+    next: options.next,
+  });
   const res = await fetch(fullUrl, {
     method: options.method || "GET",
     headers: {
@@ -39,7 +47,11 @@ export async function api(path: string, options: APIOptions = {}) {
     body: options.body ? JSON.stringify(options.body) : undefined,
     next: options.next || { revalidate: 3600 },
   });
-
+  console.log("[API RESPONSE]", {
+    url: fullUrl,
+    status: res.status,
+    statusText: res.statusText,
+  });
   if (!res.ok) {
     throw new Error(`Failed to fetch ${path}: ${res.statusText}`);
   }

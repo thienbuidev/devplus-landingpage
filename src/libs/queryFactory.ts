@@ -3,53 +3,41 @@ import { api, APIOptions } from './api';
 import {
   useQuery,
   UseQueryOptions,
-  useQueryClient,
   QueryClient,
   QueryKey,
 } from '@tanstack/react-query';
 
 
 export function createQueryResource<TResponse>(
-  key: string, path: string
+  key: string, path: string, options: APIOptions
 ) {
 
-
-  function getQueryKey(options?: APIOptions): QueryKey {
+  function getQueryKey(): QueryKey {
     return [key, options?.params || {}, options?.query || {}];
   }
 
-  function getQueryOptions(options?: APIOptions) {
+  function getQueryOptions() {
     return {
-      queryKey: getQueryKey(options),
+      queryKey: getQueryKey(),
       queryFn: () => api(path, options),
     };
   }
 
   function useQueryResource(
-    options?: APIOptions,
     queryOptions?: Partial<UseQueryOptions<TResponse>>
   ) {
     return useQuery({
-      ...getQueryOptions(options),
+      ...getQueryOptions(),
       ...queryOptions,
     });
   }
 
-  function useClient() {
-    return useQueryClient();
-  }
-
-  async function prefetch(client: QueryClient, options?: APIOptions) {
-    return client.prefetchQuery(getQueryOptions(options));
+  async function prefetch(client: QueryClient) {
+    return client.prefetchQuery(getQueryOptions());
   }
 
   return {
-    // Client-side
     useQuery: useQueryResource,
-    useClient,
-
-    // Server-side
     prefetch,
-    getQueryOptions,
   };
 }
