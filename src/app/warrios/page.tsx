@@ -5,7 +5,7 @@ import { Divider, Input, Select, Tag } from "antd";
 import { warrios } from "./MapComponent/data";
 import { MapComponent } from "./MapComponent";
 
-const { Option } = Select;
+// const { Option } = Select;
 
 export default function WarriosPage() {
   return (
