@@ -2,23 +2,16 @@
 import { Col, Pagination, Row } from "antd";
 import { useState } from "react";
 import { BiRightArrowCircle } from "react-icons/bi";
-import { getArticle } from "services";
-import { Article } from "types";
-import { StrapiResponse } from "types/strapiResponse";
+import { getArticles } from "services/article.query";
 
-interface ArticleDataProb {
-  articleData: StrapiResponse<Article>;
-}
-export const ArticlePagination = ({ articleData }: ArticleDataProb) => {
-  const [data, setData] = useState<StrapiResponse<Article>>(articleData);
-  const OnPageChange = async (p: number) => {
-    const articleData = await getArticle(p, 3);
-    setData(articleData);
-  };
+export const ArticlePagination = () => {
+  const [page, setPage] = useState(1);
+  const { data } = getArticles(page).useQuery();
+
   return (
     <div>
       <Row className="px-6 md:px-0 lg:px-16 my-20">
-        {data.data.map((item, index) => (
+        {data && data.data.map((item, index) => (
           <Col
             key={index}
             sm={{ order: 1, span: 24 }}
@@ -40,10 +33,10 @@ export const ArticlePagination = ({ articleData }: ArticleDataProb) => {
         ))}
       </Row>
       <Pagination
-        current={data.meta.pagination.page}
-        pageSize={data.meta.pagination.pageSize}
-        total={data.meta.pagination.total}
-        onChange={(p) => OnPageChange(p)}
+        current={data && data.meta.pagination.page}
+        pageSize={data && data.meta.pagination.pageSize}
+        total={data && data.meta.pagination.total}
+        onChange={(p) => setPage(p)}
         className="!mb-8"
       />
     </div>
