@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Divider, Input, Select, Tag } from "antd";
 import { warrios } from "./MapComponent/data";
 import { MapComponent } from "./MapComponent";
-import { TagDisplayName } from "constants/tagStatus";
 
 const { Option } = Select;
 
@@ -36,11 +35,11 @@ export default function WarriosPage() {
               allowClear
               size="large"
             >
-              {Object.entries(TagDisplayName).map(([key, label]) => (
+              {/* {Object.entries(TagDisplayName).map(([key, label]) => (
                 <Option key={key} value={key}>
                   {label}
                 </Option>
-              ))}
+              ))} */}
             </Select>
           </div>
           <div className="grid grid-cols-3 gap-4">
@@ -65,11 +64,11 @@ export default function WarriosPage() {
                     </div>
                     <div>
                       <Tag color="magenta">
-                        {
+                        {/* {
                           TagDisplayName[
                             item.tag as keyof typeof TagDisplayName
                           ]
-                        }
+                        } */}
                       </Tag>
                     </div>
                   </div>
