@@ -28,6 +28,7 @@ const nextConfig: NextConfig = {
       "rubee.com.vn",
       "images.seeklogo.com",
       "devplus.edu.vn",
+      "localhost"
     ],
   },
 };

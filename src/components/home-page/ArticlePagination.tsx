@@ -17,7 +17,7 @@ export const ArticlePagination = ({ articleData }: ArticleDataProb) => {
   };
   return (
     <div>
-      <Row className="px-16 my-20">
+      <Row className="px-6 md:px-0 lg:px-16 my-20">
         {data.data.map((item, index) => (
           <Col
             key={index}
@@ -44,6 +44,7 @@ export const ArticlePagination = ({ articleData }: ArticleDataProb) => {
         pageSize={data.meta.pagination.pageSize}
         total={data.meta.pagination.total}
         onChange={(p) => OnPageChange(p)}
+        className="!mb-8"
       />
     </div>
   );

@@ -1,5 +1,5 @@
 import Contact from "@/components/home-page/contact";
-import Content from "@/components/home-page/content";
+import FieldOfWork from "@/components/home-page/fieldOfWork";
 import Introduction from "@/components/home-page/introduction";
 import Service from "@/components/home-page/service";
 import University from "@/components/home-page/university";
@@ -10,7 +10,7 @@ export default function Home() {
       <Introduction />
       <University />
       <Service />
-      <Content />
+      <FieldOfWork />
       <Article />
       <Contact />
     </div>

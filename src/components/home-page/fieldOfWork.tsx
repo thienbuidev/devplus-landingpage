@@ -1,33 +1,14 @@
 import { Col, Row } from "antd";
 import Image from "next/image";
-import img from "@/assets/image.png";
 import { LandingButton } from "./LandingButton";
-const listItem = [
-  {
-    title: "Powered by ASU",
-    desc: "When you partner with Cintana and ASU, your students get direct access to the resources and expertise of Arizona State University.",
-    image: "/src/assets/image.png",
-  },
-  {
-    title: "Powered by ASU",
-    desc: "When you partner with Cintana and ASU, your students get direct access to the resources and expertise of Arizona State University.",
-    image: "/src/assets/image.png",
-  },
-  {
-    title: "Powered by ASU",
-    desc: "When you partner with Cintana and ASU, your students get direct access to the resources and expertise of Arizona State University.",
-    image: "/src/assets/image.png",
-  },
-  {
-    title: "Powered by ASU",
-    desc: "When you partner with Cintana and ASU, your students get direct access to the resources and expertise of Arizona State University.",
-    image: "/src/assets/image.png",
-  },
-];
-export default function Content() {
+import { getFOW } from "services";
+
+export default async function FieldOfWork() {
+  const data = await getFOW();
+  console.log("DATDAAAAAA:", data);
   return (
     <div className="w-full bg-[#EFEFEF]">
-      {listItem.map((item, index) => (
+      {data.data.map((item, index) => (
         <Row key={index}>
           <Col
             xs={{ order: 1, span: 24 }}
@@ -40,7 +21,7 @@ export default function Content() {
               <div className="text-5xl font-semibold text-gray-600">
                 {item.title}
               </div>
-              <div className="text-base">{item.desc}</div>
+              <div className="text-base">{item.subTitle}</div>
               <div className="flex justify-start items-start align-middle">
                 <LandingButton text="Learn more" className="" />
               </div>
@@ -55,10 +36,10 @@ export default function Content() {
           >
             <div className="w-full aspect-[5/3] relative">
               <Image
-                alt={item.desc}
-                src={img}
+                alt={item.url || ""}
+                src={item.url || ""}
                 fill
-                className="object-cover w-full h-full"
+                className="object-fit w-full h-full"
                 loading="lazy"
               />
             </div>

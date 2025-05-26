@@ -2,6 +2,7 @@ import { University, Service, Article } from "types";
 import { methods, urls } from "../constants";
 import { request } from "../libs";
 import { StrapiResponse } from "types/strapiResponse";
+import { FieldOfWork } from "types/fieldOfWork";
 
 export const getUniversity = async (
   onSuccess?: (data: StrapiResponse<University>) => void,
@@ -14,7 +15,17 @@ export const getUniversity = async (
     onError,
   });
 };
-
+export const getFOW = async (
+  onSuccess?: (data: StrapiResponse<FieldOfWork>) => void,
+  onError?: (error: unknown) => void
+) => {
+  return request<FieldOfWork>({
+    method: methods.get,
+    url: "/field-of-work",
+    onSuccess,
+    onError,
+  });
+};
 export const getService = async (
   onSuccess?: (data: StrapiResponse<Service>) => void,
   onError?: (error: unknown) => void

@@ -38,12 +38,11 @@ export default async function UniversityServices() {
           <FaUniversity size={64} />
         </div>
         <h2 className="text-3xl md:text-4xl font-bold text-slate-700 text-center mb-6">
-          Helping Universities Improve And Grow
+          Cải thiện và phát triển các trường đại học
         </h2>
         <div className="w-24 h-0.5 bg-slate-300 mb-6"></div>
         <p className="text-slate-600 text-center max-w-2xl">
-          Helping universities to achieve ambitious goals in growth, quality,
-          and reputation.
+          Hỗ trợ các trường đại học đạt được các mục tiêu nguyện vọng về tăng trưởng, chất lượng và danh tiếng.
         </p>
       </div>
 
