@@ -1,11 +1,10 @@
-interface ServiceProps {
+interface FOWProps {
   icon?: React.ReactNode;
-  slug?: string;
   name: string;
   description: string;
 }
 
-export const Service = ({ icon, name, description }: ServiceProps) => {
+export const FOWItem = ({ icon, name, description }: FOWProps) => {
   return (
     <div className="flex flex-col items-center text-center px-4 mb-8">
       <div className="text-slate-600 mb-4">{icon}</div>

@@ -1,0 +1,33 @@
+// Định nghĩa animation trượt sang trái
+@keyframes slide-left {
+  from {
+    transform: translateX(400%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// Định nghĩa animation trượt sang phải
+@keyframes slide-right {
+  from {
+    transform: translateX(-400%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// Component animation trượt trái
+.slide-left {
+  animation: slide-left 2s ease forwards;
+}
+
+// Component animation trượt phải
+.slide-right {
+  animation: slide-right 2s ease forwards;
+}

@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
     //   },
     // ],
     domains: [
+      "istockphoto.com",
       "encrypted-tbn0.gstatic.com",
       "upload.wikimedia.org",
       "files02.duytan.edu.vn",
