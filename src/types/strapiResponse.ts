@@ -1,5 +1,5 @@
 export interface StrapiResponse<T> {
-  data: T[];
+  data: T[] | T;
   meta: { pagination: PaginationData };
 }
 export interface PaginationData {

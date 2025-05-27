@@ -27,7 +27,7 @@ const iconMap: Record<string, React.ReactNode> = {
 export default async function FieldOfWorkPage() {
   const data: StrapiResponse<FieldOfWork> = await api("field-of-work");
 
-  const fowMapIcon = data.data.map((fow) => {
+  const fowMapIcon = (data.data as FieldOfWork[]).map((fow) => {
     return {
       ...fow,
       icon: iconMap[fow.icon!],
