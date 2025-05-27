@@ -1,7 +1,8 @@
 "use client";
 import { Col, Pagination, Row } from "antd";
+import { motion } from "framer-motion";
 import { useState } from "react";
-import { BiRightArrowCircle } from "react-icons/bi";
+import { BiSolidRightArrowSquare } from "react-icons/bi";
 import { getArticles } from "services/article.query";
 
 export const ArticlePagination = () => {
@@ -9,36 +10,42 @@ export const ArticlePagination = () => {
   const { data } = getArticles(page).useQuery();
 
   return (
-    <div>
-      <Row className="px-6 md:px-0 lg:px-16 my-20">
-        {data && data.data.map((item, index) => (
-          <Col
-            key={index}
-            sm={{ order: 1, span: 24 }}
-            md={{ order: 1, span: 24 }}
-            lg={{ order: 1, span: 8 }}
-            className="flex flex-col p-4"
-          >
-            <div className="text-3xl text-gray-600 font-bold mb-8">
-              {item.title}
-            </div>
-            <div className="text-sm mb-2">
-              {item.content.substring(0, 400)}...
-            </div>
-            <div className="flex flex-row gap-1 align-middle items-center decoration-2 underline decoration-gray-700 text-gray-700 font-semibold hover:cursor-pointer">
-              <p>Read More</p>
-              <BiRightArrowCircle className="text-xl bg-gray-800 text-white rounded-full" />
-            </div>
-          </Col>
-        ))}
-      </Row>
-      <Pagination
-        current={data && data.meta.pagination.page}
-        pageSize={data && data.meta.pagination.pageSize}
-        total={data && data.meta.pagination.total}
-        onChange={(p) => setPage(p)}
-        className="!mb-8"
-      />
+    <div className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 py-16">
+      <motion.div
+        initial={{ y: 300, x: 0, opacity: 0 }}
+        whileInView={{ y: 0, x: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <Row gutter={[24, 24]}>
+          {data?.data?.map((item, index) => (
+            <Col key={index} xs={24} sm={12} lg={8}>
+              <div className="flex flex-col justify-between h-full bg-white rounded-xl shadow-md p-6 transition-transform hover:-translate-y-1 hover:shadow-lg">
+                <div>
+                  <h3 className="text-2xl font-semibold text-gray-800 mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm line-clamp-3">
+                    {item.description}
+                  </p>
+                </div>
+                <div className="flex gap-2 items-center justify-center mt-6 text-gray-700 underline font-medium cursor-pointer hover:text-blue-600 transition-colors">
+                  <span>Read More</span>
+                  <BiSolidRightArrowSquare className="text-xl bg-gray-800 text-white rounded-sm" />
+                </div>
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </motion.div>
+      <div className="flex justify-center mt-10">
+        <Pagination
+          current={data?.meta.pagination.page}
+          pageSize={data?.meta.pagination.pageSize}
+          total={data?.meta.pagination.total}
+          onChange={(p) => setPage(p)}
+        />
+      </div>
     </div>
   );
 };

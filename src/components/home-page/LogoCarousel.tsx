@@ -50,7 +50,13 @@ export default function LogoCarousel({ universities }: LogoCarouselProps) {
         className="w-1/2 mx-auto custom-carousel"
       >
         {universities.map((uni, i) => (
-          <Image key={i} preview={false} src={uni.logo} alt={`img-${i}`} className="w-full h-full object-contain px-3 md:px-4 lg:px-6" />
+          <Image
+            key={i}
+            preview={false}
+            src={uni.logo}
+            alt={uni.name}
+            className="w-full h-full object-contain px-3 md:px-4 lg:px-6"
+          />
         ))}
       </Slider>
       <BiRightArrowCircle

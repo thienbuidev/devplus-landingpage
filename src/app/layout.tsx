@@ -40,8 +40,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" className="mdl-js">
+  return (  <html lang="en" className="mdl-js">
+  
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-full`}
       >
