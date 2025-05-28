@@ -1,71 +1,50 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 type TypingTextProps = {
-  text?: string;
+  text: string;
   speed?: number;
-  delay?: number; // NEW
+  delay?: number;
   className?: string;
 };
 
 export const TypingText = ({
   text,
-  speed = 100,
-  delay = 0, // NEW
-  className,
+  speed = 50,
+  delay = 0,
+  className = "",
 }: TypingTextProps) => {
-  const [displayed, setDisplayed] = useState("");
-  const [height, setHeight] = useState<number | null>(null);
-  const hiddenRef = useRef<HTMLDivElement>(null);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const delayRef = useRef<NodeJS.Timeout | null>(null); // NEW
+  const [visibleChars, setVisibleChars] = useState(0);
 
   useEffect(() => {
-    setDisplayed("");
+    setVisibleChars(0);
+
+    const total = text.length;
     let index = 0;
-    if (!text) return;
 
-    // Clear previous timers
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    if (delayRef.current) clearTimeout(delayRef.current);
-
-    delayRef.current = setTimeout(() => {
-      intervalRef.current = setInterval(() => {
-        setDisplayed(text.substring(0, index + 1));
+    const timer = setTimeout(() => {
+      const interval = setInterval(() => {
         index++;
-        if (index >= text.length && intervalRef.current) {
-          clearInterval(intervalRef.current);
-        }
+        setVisibleChars(index);
+        if (index >= total) clearInterval(interval);
       }, speed);
-    }, delay); // Apply delay before typing starts
+    }, delay);
 
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      if (delayRef.current) clearTimeout(delayRef.current);
+      clearTimeout(timer);
     };
   }, [text, speed, delay]);
 
-  useEffect(() => {
-    if (hiddenRef.current) {
-      setHeight(hiddenRef.current.offsetHeight);
-    }
-  }, [text]);
-
   return (
-    <>
-      <div
-        ref={hiddenRef}
-        className={`${className} invisible absolute pointer-events-none whitespace-pre-wrap`}
-      >
-        {text}
-      </div>
-
-      <div
-        className={className}
-        style={height ? { minHeight: `${height}px` } : undefined}
-      >
-        {displayed}
-      </div>
-    </>
+    <div className={`whitespace-pre-wrap ${className}`}>
+      {text.split("").map((char, index) => (
+        <span
+          key={index}
+          className={`transition-opacity duration-200 ${index < visibleChars ? "opacity-100" : "opacity-0"}`}
+        >
+          {char}
+        </span>
+      ))}
+    </div>
   );
 };
