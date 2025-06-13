@@ -12,6 +12,7 @@ export default function Home() {
       <Service />
       <Content />
       <Contact />
+      <div className="h-10 bg-red-500">123</div>
     </div>
   );
 }
