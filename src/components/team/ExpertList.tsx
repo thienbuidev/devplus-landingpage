@@ -6,7 +6,6 @@ export const ExpertList = () => {
   const [practice, setPractice] = useState<string | null>(null);
   const [name, setName] = useState<string | null>(null);
   const { data } = getExperts(practice, name).useQuery();
-  console.log("ExpertList data:", data);
   return (
     <div>
       <div className="text-2xl font-bold my-8 flex flex-col md:flex-row w-full items-center align-middle">

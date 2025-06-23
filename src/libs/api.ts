@@ -9,6 +9,8 @@ export interface APIOptions {
 export async function api(path: string, options: APIOptions = {}) {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
+  console.log("object", path, baseUrl);
+
   if (options.params) {
     for (const key in options.params) {
       path = path.replace(
@@ -27,16 +29,10 @@ export async function api(path: string, options: APIOptions = {}) {
     queryString = `?${searchParams.toString()}`;
   }
 
-  const fullUrl = `${baseUrl}${path}${queryString}`;
-  console.log("[API REQUEST]", {
-    url: fullUrl,
-    method: options.method || "GET",
-    headers: { "Content-Type": "application/json", ...options.headers },
-    body: options.body,
-    query: options.query,
-    params: options.params,
-    next: options.next,
-  });
+  const fullUrl = `${baseUrl}/${path}${queryString}`;
+
+  console.log("object", fullUrl);
+
   const res = await fetch(fullUrl, {
     method: options.method || "GET",
     headers: {
@@ -46,11 +42,7 @@ export async function api(path: string, options: APIOptions = {}) {
     body: options.body ? JSON.stringify(options.body) : undefined,
     next: options.next || { revalidate: 3600 },
   });
-  console.log("[API RESPONSE]", {
-    url: fullUrl,
-    status: res.status,
-    statusText: res.statusText,
-  });
+
   if (!res.ok) {
     throw new Error(`Failed to fetch ${path}: ${res.statusText}`);
   }

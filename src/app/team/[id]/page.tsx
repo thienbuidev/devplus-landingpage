@@ -12,7 +12,6 @@ export default async function ExpertPage({ params }: ExpertPageProps) {
   try {
     const res = await api(`experts/${id}`);
     expert = res.data;
-    console.log("Expert data:", expert);
     if (!expert) return notFound();
   } catch {
     return notFound();
