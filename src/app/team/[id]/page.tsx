@@ -3,7 +3,7 @@ import { api } from "../../../libs/api";
 import { notFound } from "next/navigation";
 
 interface ExpertPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function ExpertPage({ params }: ExpertPageProps) {

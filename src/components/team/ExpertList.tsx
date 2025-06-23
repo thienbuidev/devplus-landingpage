@@ -39,6 +39,7 @@ export const ExpertList = () => {
       </div>
       <div className="w-full grid xs:grid-cols-1 sm:md:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
         {data &&
+          Array.isArray(data.data) &&
           data.data.map((expert: Expert, index: number) => (
             <a
               key={index}

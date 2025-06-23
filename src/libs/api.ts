@@ -5,10 +5,9 @@ export interface APIOptions {
   body?: unknown;
   headers?: Record<string, string>;
   next?: { revalidate?: number; tags?: string[] };
-};
+}
 export async function api(path: string, options: APIOptions = {}) {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_API_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
   if (options.params) {
     for (const key in options.params) {

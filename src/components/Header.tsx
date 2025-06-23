@@ -36,9 +36,9 @@ export default function Header() {
               COMMUNITY
             </Link>
           </Dropdown>
-          <Link className="px-6 py-4" href="/about">
+          {/* <Link className="px-6 py-4" href="/about">
             ABOUT
-          </Link>
+          </Link> */}
         </nav>
       </div>
     </header>

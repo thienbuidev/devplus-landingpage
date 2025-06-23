@@ -3,10 +3,7 @@ import { IntroButton } from "./IntroButton";
 
 export default async function Introduction() {
   return (
-    <div
-      className="w-full h-screen bg-cover bg-center overflow-hidden"
-      style={{ backgroundImage: "url('/bg-3.jpeg')" }}
-    >
+    <div className="w-full h-screen bg-cover bg-center overflow-hidden bg-[url('/bg-1.jpg')]">
       <div className="flex items-center justify-start *:text-[#ffffff] align-middle w-full h-full">
         <div className="p-10 md:p-30 mt-10">
           <TypingText

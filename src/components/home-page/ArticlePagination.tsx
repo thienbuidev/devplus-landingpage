@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { BiSolidRightArrowSquare } from "react-icons/bi";
 import { getArticles } from "services/article.query";
+import { Article } from "types";
 
 export const ArticlePagination = () => {
   const [page, setPage] = useState(1);
@@ -19,7 +20,7 @@ export const ArticlePagination = () => {
       >
         <Row gutter={[24, 24]}>
           {data &&
-            data.data.map((item, index) => (
+            (data.data as Article[]).map((item, index) => (
               <Col key={index} xs={24} sm={12} lg={8}>
                 <div className="flex flex-col justify-between h-full bg-white rounded-xl shadow-md p-6 transition-transform hover:-translate-y-1 hover:shadow-lg">
                   <div>

@@ -64,16 +64,16 @@ const RenderMarkdownContent: React.FC<RenderMarkdownContentProps> = ({
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeSlug, rehypeHighlight]}
           components={{
-            h1: ({ node, ...props }) => (
+            h1: ({ ...props }) => (
               <h1 className="text-3xl font-bold mt-8 mb-4" {...props} />
             ),
-            h2: ({ node, ...props }) => (
+            h2: ({ ...props }) => (
               <h2
                 className="text-2xl font-semibold mt-6 mb-2 border-b pb-1"
                 {...props}
               />
             ),
-            h3: ({ node, ...props }) => (
+            h3: ({ ...props }) => (
               <h3 className="text-xl font-medium mt-4 mb-2" {...props} />
             ),
             code(props) {

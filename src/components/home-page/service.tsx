@@ -7,7 +7,7 @@ export default async function ServicePage() {
   const data: StrapiResponse<Service> = await api("services");
   return (
     <div className="w-full bg-[#EFEFEF]">
-      <ServiceComponent data={data.data} />
+      <ServiceComponent data={data.data as Service[]} />
     </div>
   );
 }
