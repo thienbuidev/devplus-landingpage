@@ -1,11 +1,11 @@
-import { Expert } from "types";
-import { createQueryResource } from "../libs/queryFactory";
-import { StrapiResponse } from "types/strapiResponse";
+import { Expert } from 'types';
+import { createQueryResource } from '../libs/queryFactory';
+import { StrapiResponse } from 'types/strapiResponse';
 
 export const getExperts = (practice: string | null, name: string | null) =>
-  createQueryResource<StrapiResponse<Expert>>("experts", "experts", {
+  createQueryResource<StrapiResponse<Expert>>('exports', 'exports', {
     query: {
-      "filters[practice][$containsi]": practice || "",
-      "filters[name][$containsi]": name || "",
+      'filters[practice][$containsi]': practice || '',
+      'filters[name][$containsi]': name || '',
     },
   });

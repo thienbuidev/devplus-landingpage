@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { University } from "types";
-import { Image } from "antd";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { BiLeftArrowCircle, BiRightArrowCircle } from "react-icons/bi";
-import { useRef } from "react";
+import { University } from 'types';
+import { Image } from 'antd';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { BiLeftArrowCircle, BiRightArrowCircle } from 'react-icons/bi';
+import { useRef } from 'react';
 
 interface LogoCarouselProps {
   universities: University[];
@@ -55,7 +55,7 @@ export default function LogoCarousel({ universities }: LogoCarouselProps) {
             preview={false}
             src={uni.logo}
             alt={uni.name}
-            className="w-full h-full object-contain px-3 md:px-4 lg:px-6"
+            className="w-full min-h-[92px] object-cover px-3 md:px-4 lg:px-6"
           />
         ))}
       </Slider>

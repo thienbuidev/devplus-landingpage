@@ -1,6 +1,6 @@
-import { MarkdownContent } from "@/components/common/MarkdownContent";
-import { api } from "../../../libs/api";
-import { notFound } from "next/navigation";
+import { MarkdownContent } from '@/components/common/MarkdownContent';
+import { api } from '../../../libs/api';
+import { notFound } from 'next/navigation';
 
 interface ExpertPageProps {
   params: Promise<{ id: string }>;
@@ -10,7 +10,7 @@ export default async function ExpertPage({ params }: ExpertPageProps) {
   const { id } = await params;
   let expert = null;
   try {
-    const res = await api(`experts/${id}`);
+    const res = await api(`exports/${id}`);
     expert = res.data;
     if (!expert) return notFound();
   } catch {
@@ -22,7 +22,7 @@ export default async function ExpertPage({ params }: ExpertPageProps) {
       <h1 className="text-center text-2xl font-bold py-4 ">{expert.name}</h1>
       <p className="text-center text-lg mb-4">{expert.practice}</p>
 
-      <MarkdownContent content={expert.content || ""} />
+      <MarkdownContent content={expert.content || ''} />
     </div>
   );
 }

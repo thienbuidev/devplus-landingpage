@@ -1,9 +1,9 @@
-"use client";
-import { Col, Image, Row } from "antd";
-import { Service } from "types";
-import { LandingButton } from "./LandingButton";
-import { memo } from "react";
-import { motion } from "framer-motion";
+'use client';
+import { Col, Image, Row } from 'antd';
+import { Service } from 'types';
+import { LandingButton } from './LandingButton';
+import { memo } from 'react';
+import { motion } from 'framer-motion';
 const ServiceComponent = ({ data }: { data: Service[] }) => {
   const CardItem = memo(({ item, index }: { item: Service; index: number }) => {
     return (
@@ -14,7 +14,7 @@ const ServiceComponent = ({ data }: { data: Service[] }) => {
         viewport={{ once: true }}
       >
         <Row
-          className={`${index % 2 == 0 ? "slide-left" : "slide-right"} flex items-center align-middle lg:px-16`}
+          className={`${index % 2 == 0 ? 'slide-left' : 'slide-right'} flex items-center align-middle lg:px-16`}
         >
           <Col
             xs={{ order: 1, span: 24 }}
@@ -24,7 +24,7 @@ const ServiceComponent = ({ data }: { data: Service[] }) => {
             className="p-10"
           >
             <div
-              className={`flex flex-col gap-8 ${index % 2 == 0 ? "lg:text-left" : "lg:text-right"}`}
+              className={`flex flex-col gap-8 ${index % 2 == 0 ? 'lg:text-left' : 'lg:text-right'}`}
             >
               <div className="text-3xl md:text-4xl lg-text-5xl font-semibold text-gray-600">
                 {item.name}
@@ -44,10 +44,10 @@ const ServiceComponent = ({ data }: { data: Service[] }) => {
           >
             <div className="w-full flex align-middle justify-center items-center">
               <Image
-                alt={item.imageUrl || ""}
-                src={item.imageUrl || ""}
+                alt={item.imageUrl || ''}
+                src={item.imageUrl || ''}
                 preview={false}
-                className={`object-contain self-center w-full h-full hover:scale-105 transition-transform duration-300 shadow-lg shadow-black rounded-lg hover:rounded-lg`}
+                className={`object-cover self-center w-full max-h-[410px] hover:scale-105 transition-transform duration-300 shadow-lg shadow-black rounded-lg hover:rounded-lg`}
               />
             </div>
           </Col>
@@ -55,7 +55,7 @@ const ServiceComponent = ({ data }: { data: Service[] }) => {
       </motion.div>
     );
   });
-  CardItem.displayName = "ServiceCardItem";
+  CardItem.displayName = 'ServiceCardItem';
   return (
     <>
       {data.map((item, index) => (

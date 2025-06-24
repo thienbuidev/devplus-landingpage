@@ -1,5 +1,6 @@
-import { Col, Row } from "antd";
-import Image from "next/image";
+import { Col, Row } from 'antd';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -17,26 +18,27 @@ export default function Footer() {
             <div>Hotline: +84 123 456 789</div>
             <div>Email: hello@devplus.edu.vn</div>
           </div>
-
           <p className="col-span-3">© 2025 Devplus. All rights reserved.</p>
         </Col>
+
         <Col
           xs={{ order: 1, span: 24 }}
           sm={{ order: 1, span: 24 }}
           md={{ order: 2, span: 8 }}
-          className=" items-center align-middle justify-center mb-8"
+          className="items-center align-middle justify-center mb-8"
         >
           <div className="flex flex-col gap-4 text-center">
-            <div>Home</div>
-            <div>Team</div>
-            <div>About</div>
-            <div>News</div>
-            <div>Features</div>
-            <div>Contact</div>
-            <div>Privacy Policy</div>
-            <div>Term of Use</div>
+            <Link href="/">Home</Link>
+            <Link href="/team">Team</Link>
+            <Link href="/about">About</Link>
+            <Link href="/news">News</Link>
+            <Link href="/features">Features</Link>
+            <Link href="/contact">Contact</Link>
+            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/terms-of-use">Term of Use</Link>
           </div>
         </Col>
+
         <Col
           xs={{ order: 2, span: 24 }}
           sm={{ order: 2, span: 24 }}
@@ -44,12 +46,14 @@ export default function Footer() {
           className="flex mb-8"
         >
           <div className="flex flex-col gap-4 text-center">
-            <div>ASU Partnership</div>
-            <div>Powered by ASU</div>
-            <div>New Universities</div>
-            <div>Regional Universities</div>
-            <div>Globally Ranked Universities</div>
-            <div>The Cintana Alliance</div>
+            <Link href="/asu-partnership">ASU Partnership</Link>
+            <Link href="/powered-by-asu">Powered by ASU</Link>
+            <Link href="/new-universities">New Universities</Link>
+            <Link href="/regional-universities">Regional Universities</Link>
+            <Link href="/global-universities">
+              Globally Ranked Universities
+            </Link>
+            <Link href="/cintana-alliance">The Cintana Alliance</Link>
           </div>
         </Col>
       </Row>

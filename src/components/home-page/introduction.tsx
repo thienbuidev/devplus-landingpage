@@ -1,5 +1,5 @@
-import { TypingText } from "../atom/TypingText";
-import { IntroButton } from "./IntroButton";
+import { TypingText } from '../atom/TypingText';
+import { IntroButton } from './IntroButton';
 
 export default async function Introduction() {
   return (
