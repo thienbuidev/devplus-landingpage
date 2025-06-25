@@ -47,7 +47,7 @@ export default function LogoCarousel({ universities }: LogoCarouselProps) {
       <Slider
         ref={sliderRef}
         {...settings}
-        className="w-1/2 mx-auto custom-carousel"
+        className="w-1/2 mx-auto custom-carousel flex-1"
       >
         {universities.map((uni, i) => (
           <Image
@@ -55,7 +55,7 @@ export default function LogoCarousel({ universities }: LogoCarouselProps) {
             preview={false}
             src={uni.logo}
             alt={uni.name}
-            className="w-full min-h-[92px] object-cover px-3 md:px-4 lg:px-6"
+            className="w-full min-h-[200px] object-cover px-3 md:px-4 lg:px-6"
           />
         ))}
       </Slider>

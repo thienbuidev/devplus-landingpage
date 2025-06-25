@@ -28,14 +28,30 @@ export default function Footer() {
           className="items-center align-middle justify-center mb-8"
         >
           <div className="flex flex-col gap-4 text-center">
-            <Link href="/">Home</Link>
-            <Link href="/team">Team</Link>
-            <Link href="/about">About</Link>
-            <Link href="/news">News</Link>
-            <Link href="/features">Features</Link>
-            <Link href="/contact">Contact</Link>
-            <Link href="/privacy-policy">Privacy Policy</Link>
-            <Link href="/terms-of-use">Term of Use</Link>
+            <Link href="/" className="!text-white">
+              Home
+            </Link>
+            <Link href="/team" className="!text-white">
+              Team
+            </Link>
+            <Link href="/about" className="!text-white">
+              About
+            </Link>
+            <Link href="/news" className="!text-white">
+              News
+            </Link>
+            <Link href="/features" className="!text-white">
+              Features
+            </Link>
+            <Link href="/contact" className="!text-white">
+              Contact
+            </Link>
+            <Link href="/privacy-policy" className="!text-white">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-of-use" className="!text-white">
+              Term of Use
+            </Link>
           </div>
         </Col>
 
@@ -46,14 +62,24 @@ export default function Footer() {
           className="flex mb-8"
         >
           <div className="flex flex-col gap-4 text-center">
-            <Link href="/asu-partnership">ASU Partnership</Link>
-            <Link href="/powered-by-asu">Powered by ASU</Link>
-            <Link href="/new-universities">New Universities</Link>
-            <Link href="/regional-universities">Regional Universities</Link>
-            <Link href="/global-universities">
+            <Link href="/asu-partnership" className="!text-white">
+              ASU Partnership
+            </Link>
+            <Link href="/powered-by-asu" className="!text-white">
+              Powered by ASU
+            </Link>
+            <Link href="/new-universities" className="!text-white">
+              New Universities
+            </Link>
+            <Link href="/regional-universities" className="!text-white">
+              Regional Universities
+            </Link>
+            <Link href="/global-universities" className="!text-white">
               Globally Ranked Universities
             </Link>
-            <Link href="/cintana-alliance">The Cintana Alliance</Link>
+            <Link href="/cintana-alliance" className="!text-white">
+              The Cintana Alliance
+            </Link>
           </div>
         </Col>
       </Row>

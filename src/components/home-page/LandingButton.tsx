@@ -10,7 +10,8 @@ export const LandingButton = ({
 }: LandingButtonProb) => {
   return (
     <button
-      className={`hover:scale-105 hover:shadow-lg hover:shadow-black rounded-none bg-1 cursor-pointer py-2 px-4 text-lg font-semibold text-black hover:bg-orange-400 transition duration-300 ease-in-out ${className}`}
+      className={`hover:scale-105 hover:shadow-lg hover:shadow-black rounded-[25px] bg-[#fb8a38] cursor-pointer py-2 px-4 text-lg font-semibold text-white hover:text-black transition duration-300 ease-in-out ${className}`}
+      type="button"
       onClick={onClick}
     >
       {text}

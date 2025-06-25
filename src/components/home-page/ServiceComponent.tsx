@@ -47,7 +47,7 @@ const ServiceComponent = ({ data }: { data: Service[] }) => {
                 alt={item.imageUrl || ''}
                 src={item.imageUrl || ''}
                 preview={false}
-                className={`object-cover self-center w-full max-h-[410px] hover:scale-105 transition-transform duration-300 shadow-lg shadow-black rounded-lg hover:rounded-lg`}
+                className={`object-cover self-center min-w-[610px] max-h-[410px] hover:scale-105 transition-transform duration-300 shadow-lg shadow-black rounded-lg hover:rounded-lg`}
               />
             </div>
           </Col>
