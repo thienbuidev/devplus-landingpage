@@ -5,7 +5,7 @@ export default async function University() {
   const uniData = await api('universities');
   console.log('object', uniData);
   return (
-    <div className="w-full py-[50px] px-[30px] text-[#fb8a38] bg-[#fef4eb]">
+    <div className="w-full py-[45px] px-[20px] text-[#fb8a38] bg-[#fef4eb]">
       <LogoCarousel universities={uniData.data} />
     </div>
   );

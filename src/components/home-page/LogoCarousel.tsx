@@ -17,10 +17,10 @@ export default function LogoCarousel({ universities }: LogoCarouselProps) {
     dots: true,
     infinite: true,
     speed: 1000,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
     arrows: false,
     responsive: [
       {
@@ -39,7 +39,7 @@ export default function LogoCarousel({ universities }: LogoCarouselProps) {
   };
 
   return (
-    <div className="w-full flex flex-row gap-8 align-middle justify-center items-center">
+    <div className="w-full flex flex-row gap-3 align-middle justify-center items-center">
       <BiLeftArrowCircle
         size={40}
         onClick={() => sliderRef.current?.slickPrev()}
@@ -50,15 +50,20 @@ export default function LogoCarousel({ universities }: LogoCarouselProps) {
         className="w-1/2 mx-auto custom-carousel flex-1"
       >
         {universities.map((uni, i) => (
-          <Image
+          <div
             key={i}
-            preview={false}
-            src={uni.logo}
-            alt={uni.name}
-            className="w-full min-h-[200px] object-cover px-3 md:px-4 lg:px-6"
-          />
+            className="overflow-hidden rounded-[10px] px-3 md:px-4 lg:px-5"
+          >
+            <Image
+              preview={false}
+              src={uni.logo}
+              alt={uni.name}
+              className="w-full min-h-[200px] object-cover rounded-[15px]"
+            />
+          </div>
         ))}
       </Slider>
+
       <BiRightArrowCircle
         size={40}
         onClick={() => sliderRef.current?.slickNext()}

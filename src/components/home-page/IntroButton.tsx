@@ -1,7 +1,7 @@
-"use client";
-import { motion } from "framer-motion";
-import { LuVideo } from "react-icons/lu";
-import { LandingButton } from "./LandingButton";
+'use client';
+import { motion } from 'framer-motion';
+import { LuVideo } from 'react-icons/lu';
+import { LandingButton } from './LandingButton';
 
 export const IntroButton = () => {
   return (

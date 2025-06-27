@@ -5,12 +5,12 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <footer className="p-4 bg-gray-800 text-white text-center text-sm">
-      <Row className="flex align-middle justify-center items-center">
+      <Row className="flex align-middle justify-between">
         <Col
           xs={{ order: 3, span: 24 }}
           sm={{ order: 3, span: 24 }}
           md={{ order: 1, span: 8 }}
-          className="mb-8"
+          className="mb-8 flex-1"
         >
           <div className="flex justify-center items-center flex-col gap-2">
             <Image src="/logo.png" alt="" height={100} width={100} />
@@ -25,9 +25,10 @@ export default function Footer() {
           xs={{ order: 1, span: 24 }}
           sm={{ order: 1, span: 24 }}
           md={{ order: 2, span: 8 }}
-          className="items-center align-middle justify-center mb-8"
+          className="items-center align-middle justify-center mb-8 mt-3 text-left"
+          style={{ maxWidth: '200px' }}
         >
-          <div className="flex flex-col gap-4 text-center">
+          <div className="flex flex-col gap-4">
             <Link href="/" className="!text-white">
               Home
             </Link>
@@ -43,6 +44,17 @@ export default function Footer() {
             <Link href="/features" className="!text-white">
               Features
             </Link>
+          </div>
+        </Col>
+
+        <Col
+          xs={{ order: 2, span: 24 }}
+          sm={{ order: 2, span: 24 }}
+          md={{ order: 3, span: 8 }}
+          className="flex mb-8 mt-3 text-left"
+          style={{ maxWidth: '200px' }}
+        >
+          <div className="flex flex-col gap-4">
             <Link href="/contact" className="!text-white">
               Contact
             </Link>
@@ -52,6 +64,12 @@ export default function Footer() {
             <Link href="/terms-of-use" className="!text-white">
               Term of Use
             </Link>
+            <Link href="/asu-partnership" className="!text-white">
+              ASU Partnership
+            </Link>
+            <Link href="/powered-by-asu" className="!text-white">
+              Powered by ASU
+            </Link>
           </div>
         </Col>
 
@@ -59,15 +77,10 @@ export default function Footer() {
           xs={{ order: 2, span: 24 }}
           sm={{ order: 2, span: 24 }}
           md={{ order: 3, span: 8 }}
-          className="flex mb-8"
+          className="flex mb-8 mt-3 text-left"
+          style={{ maxWidth: '200px' }}
         >
-          <div className="flex flex-col gap-4 text-center">
-            <Link href="/asu-partnership" className="!text-white">
-              ASU Partnership
-            </Link>
-            <Link href="/powered-by-asu" className="!text-white">
-              Powered by ASU
-            </Link>
+          <div className="flex flex-col gap-4">
             <Link href="/new-universities" className="!text-white">
               New Universities
             </Link>

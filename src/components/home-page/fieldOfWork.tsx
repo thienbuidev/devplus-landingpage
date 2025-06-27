@@ -35,7 +35,7 @@ export default async function FieldOfWorkPage() {
   });
 
   return (
-    <section className=" w-full bg-white pt-20 pb-20 px-6">
+    <section className=" w-full bg-white pt-10 pb-10 px-6">
       <div className="flex flex-col items-center mb-12">
         <div className="text-slate-600 mb-4">
           <FaUniversity size={64} color="#fb8a38" />

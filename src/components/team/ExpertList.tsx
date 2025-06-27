@@ -10,10 +10,10 @@ export const ExpertList = () => {
   return (
     <div>
       <div className="text-2xl font-bold my-8 flex flex-col md:flex-row w-full items-center align-middle">
-        <p className="text-3xl text-[#545d62]">Find an expert:</p>
+        <p className="text-2xl text-[#fb8a38]">Find an expert:</p>
         <span className="ml-0 md:ml-10 mt-6 md:mt-0">
           <select
-            className="border rounded px-3 py-2 text-[#545d62]"
+            className="border rounded px-3 py-2 text-[#545d62] text-xl font-medium outline-none"
             value={practice ?? ''}
             onChange={(e) => setPractice(e.target.value || null)}
           >
@@ -30,7 +30,7 @@ export const ExpertList = () => {
         <span className="ml-0 md:ml-10 mt-6 md:mt-0">
           <input
             type="text"
-            className="border rounded px-3 py-2 text-[#545d62]"
+            className="border rounded px-3 py-2 text-[#545d62] text-xl font-medium outline-none"
             placeholder="Search by name"
             value={name ?? ''}
             onChange={(e) => setName(e.target.value || null)}
@@ -53,11 +53,11 @@ export const ExpertList = () => {
                   'https://devplus.edu.vn/_next/static/media/buingocvinh.e45adc5b.png'
                 }
                 preview={false}
-                className={`object-contain self-center w-full h-full hover:scale-105 transition-transform duration-300 shadow-lg shadow-black rounded-lg hover:rounded-lg`}
+                className={`object-contain self-center w-full h-full hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#ecf1f4] rounded-lg hover:rounded-lg`}
               />
               <br />
               <br />
-              <h2 className="text-xl font-semibold mb-2 text-[#49575e]">
+              <h2 className="text-xl font-semibold mb-2 text-[#fb8a38]">
                 {expert.name}
               </h2>
               <p className="text-gray-700 mb-4">{expert.description}</p>
