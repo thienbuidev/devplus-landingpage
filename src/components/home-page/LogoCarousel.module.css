@@ -1,0 +1,25 @@
+/* Desktop: 4 items */
+.responsive-carousel :global(.slick-slide) {
+  width: 25% !important;
+}
+
+/* Tablet: 3 items */
+@media (max-width: 1024px) {
+  .responsive-carousel :global(.slick-slide) {
+    width: 33.333% !important;
+  }
+}
+
+/* Mobile: 2 items */
+@media (max-width: 768px) {
+  .responsive-carousel :global(.slick-slide) {
+    width: 50% !important;
+  }
+}
+
+/* Small mobile: 1 item */
+@media (max-width: 480px) {
+  .responsive-carousel :global(.slick-slide) {
+    width: 100% !important;
+  }
+}

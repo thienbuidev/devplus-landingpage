@@ -1,18 +1,18 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { TypingText } from '../atom/TypingText';
-import { IntroButton } from './IntroButton';
-import { api } from 'libs/api';
-import type { Banner } from '@/types/banner';
+"use client";
+import { useEffect, useState } from "react";
+// import { TypingText } from "../atom/TypingText";
+// import { IntroButton } from "./IntroButton";
+import { api } from "libs/api";
+import type { Banner } from "@/types/banner";
 
 export default function Introduction() {
   const [banner, setBanner] = useState<Banner | null>(null);
 
   useEffect(() => {
     const fetchBanner = async () => {
-      const response = await api('banners');
+      const response = await api("banners");
       const partnershipBanner = response?.data?.find(
-        (b: Banner) => b.name === 'home'
+        (b: Banner) => b.name === "home"
       );
       setBanner(partnershipBanner || null);
     };
@@ -23,10 +23,12 @@ export default function Introduction() {
     <div
       className="w-full h-screen bg-cover bg-center overflow-hidden"
       style={{
-        backgroundImage: banner ? `url('${banner.imageUrl}')` : undefined,
+        backgroundImage: banner
+          ? `url('https://strapi.minthome.site/uploads/Screenshot_2025_07_04_at_10_29_13_PM_f75ea7260d.png')`
+          : undefined,
       }}
     >
-      <div className="flex items-center justify-start *:text-[#fb8a38] align-middle w-full h-full">
+      {/* <div className="flex items-center justify-start *:text-[#fb8a38] align-middle w-full h-full">
         <div className="p-10 md:p-30 mt-10">
           <TypingText
             text="Chào mừng đến công ty chúng tôi"
@@ -41,7 +43,7 @@ export default function Introduction() {
           />
           <IntroButton />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
