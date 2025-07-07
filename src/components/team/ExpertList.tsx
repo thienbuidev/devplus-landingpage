@@ -1,8 +1,8 @@
-'use client';
-import { Image } from 'antd';
-import { Expert } from '@/types/expert';
-import { useState } from 'react';
-import { getExperts } from 'services/expert.query';
+"use client";
+import { Image } from "antd";
+import { Expert } from "@/types/expert";
+import { useState } from "react";
+import { getExperts } from "services/expert.query";
 export const ExpertList = () => {
   const [practice, setPractice] = useState<string | null>(null);
   const [name, setName] = useState<string | null>(null);
@@ -14,7 +14,7 @@ export const ExpertList = () => {
         <span className="ml-0 md:ml-10 mt-6 md:mt-0">
           <select
             className="border rounded px-3 py-2 text-[#545d62] text-xl font-medium outline-none"
-            value={practice ?? ''}
+            value={practice ?? ""}
             onChange={(e) => setPractice(e.target.value || null)}
           >
             <option value="">All Practices</option>
@@ -32,12 +32,12 @@ export const ExpertList = () => {
             type="text"
             className="border rounded px-3 py-2 text-[#545d62] text-xl font-medium outline-none"
             placeholder="Search by name"
-            value={name ?? ''}
+            value={name ?? ""}
             onChange={(e) => setName(e.target.value || null)}
           />
         </span>
       </div>
-      <div className="w-full grid xs:grid-cols-1 sm:md:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-8">
+      <div className="max-w-6xl mx-auto grid xs:grid-cols-1 sm:md:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-8">
         {data &&
           Array.isArray(data.data) &&
           data.data.map((expert: Expert, index: number) => (
@@ -47,10 +47,10 @@ export const ExpertList = () => {
               className="bg-white p-6 rounded-lg shadow-md cursor-pointer block hover:shadow-lg transition-shadow duration-200 hover:bg-gray-50 hover:scale-105"
             >
               <Image
-                alt={expert.imageUrl || 'Binh Ngoc Vinh'}
+                alt={expert.imageUrl || "Binh Ngoc Vinh"}
                 src={
                   expert.imageUrl ||
-                  'https://devplus.edu.vn/_next/static/media/buingocvinh.e45adc5b.png'
+                  "https://devplus.edu.vn/_next/static/media/buingocvinh.e45adc5b.png"
                 }
                 preview={false}
                 className={`object-contain self-center w-full h-full hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#ecf1f4] rounded-lg hover:rounded-lg`}
