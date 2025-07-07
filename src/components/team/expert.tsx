@@ -5,7 +5,7 @@ import { ExpertList } from './ExpertList';
 
 export default async function ExpertPage() {
   return (
-    <div className="w-full px-10 md:px-20 py-10 bg-gray-100">
+    <div className="w-full px-10 md:px-20 lg:px-[30px] py-10 bg-gray-100">
       <WithQueryPrefetch prefetchFn={getExperts(null, null).prefetch}>
         <ExpertList />
       </WithQueryPrefetch>

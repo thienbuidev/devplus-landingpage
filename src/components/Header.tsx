@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { Dropdown, MenuProps } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -18,9 +19,27 @@ const items: MenuProps['items'] = [
 
 export default function Header() {
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <header className="fixed flex w-full top-0 z-999999 bg-white shadow-md shadow-[#fb8a38]/20">
+    <header
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled ? 'bg-white shadow-md shadow-[#fb8a38]/20' : 'bg-transparent'
+      }`}
+    >
       <div className="container mx-auto flex items-center justify-between p-2">
         <Link href="/">
           <Image src="/logo.png" alt="logo" width={80} height={80} />

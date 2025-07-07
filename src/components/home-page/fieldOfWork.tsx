@@ -40,7 +40,7 @@ export default async function FieldOfWorkPage() {
         <div className="text-slate-600 mb-4">
           <FaUniversity size={64} color="#fb8a38" />
         </div>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#fb8a38] text-700 text-center mb-6">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#fb8a38] text-700 text-center mb-6">
           Cải thiện và phát triển các trường đại học
         </h2>
         <div className="w-24 h-0.5 bg-gray-300 mb-6"></div>
